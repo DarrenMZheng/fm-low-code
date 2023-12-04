@@ -2,7 +2,6 @@ import React from 'react';
 import { IPublicModelPluginContext } from '@alilc/lowcode-types';
 import { Dropdown, Menu } from '@alifd/next';
 import './index.scss';
-import logoImg from './img/favicon.png';
 
 export interface IProps {
   logo?: string;
@@ -16,7 +15,7 @@ const Logo: React.FC<IProps> = (props): React.ReactElement => {
   const urls = scenarioInfo?.urls || [];
   return (
     <div className="lowcode-plugin-logo">
-      <a className="logo" target="blank" href={props.href || 'https://lowcode-engine.cn'} style={{ backgroundImage: `url(${logoImg})` }} />
+      <a className="logo" target="blank" href={props.href || 'https://lowcode-engine.cn'} style={{ backgroundImage: `url(https://sinosoft.com.cn/images/logo.png)` }} />
       {/* <div className="scenario-name">{scenarioDisplayName}</div> */}
       {
       // urls && (
@@ -59,7 +58,7 @@ const LogoSamplePlugin = (ctx: IPublicModelPluginContext) => {
         name: 'logo',
         content: <Logo scenarioDisplayName={scenarioDisplayName} scenarioInfo={scenarioInfo}  />,
         contentProps: {
-          logo: '../img/favicon.png',
+          logo: 'https://sinosoft.com.cn/images/logo.png',
           href: 'https://lowcode-engine.cn',
         },
         props: {
