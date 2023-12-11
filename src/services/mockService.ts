@@ -1,14 +1,20 @@
 import { material, project } from '@alilc/lowcode-engine';
 import { filterPackages } from '@alilc/lowcode-plugin-inject'
 import { Message, Dialog } from '@alifd/next';
-import { IPublicTypeProjectSchema, IPublicEnumTransformStage } from '@alilc/lowcode-types';
+import { 
+  IPublicTypeProjectSchema, 
+  IPublicEnumTransformStage,
+  IPublicTypeRootSchema,
+  IPublicTypeComponentMap,
+  IPublicTypeI18nMap
+ } from '@alilc/lowcode-types';
 import DefaultPageSchema from './defaultPageSchema.json';
 import DefaultI18nSchema from './defaultI18nSchema.json';
-
-const generateProjectSchema = (pageSchema: any, i18nSchema: any): IPublicTypeProjectSchema => {
+import {saveTemplateSchema} from '../utils/template';
+const generateProjectSchema = (pageSchema: IPublicTypeRootSchema, i18nSchema: IPublicTypeI18nMap): IPublicTypeProjectSchema => {
   return {
     componentsTree: [pageSchema],
-    componentsMap: material.componentsMap as any,
+    componentsMap: material.componentsMap as unknown as IPublicTypeComponentMap,
     version: '1.0.0',
     i18n: i18nSchema,
   };
@@ -16,9 +22,10 @@ const generateProjectSchema = (pageSchema: any, i18nSchema: any): IPublicTypePro
 
 
 export const saveSchema = async (scenarioName: string = 'unknown') => {
-  setProjectSchemaToLocalStorage(scenarioName);
-  await setPackagesToLocalStorage(scenarioName);
-  Message.success('成功保存到本地');
+  // setProjectSchemaToLocalStorage(scenarioName);
+  // await setPackagesToLocalStorage(scenarioName);
+  // Message.success('成功保存到本地');
+  saveTemplateSchema()
 };
 
 export const resetSchema = async (scenarioName: string = 'unknown') => {

@@ -16,6 +16,7 @@
   ],
   "config": {},
   "dependencies": {
+    "@alifd/next": "^1.26.35",
     "@alilc/lowcode-datasource-fetch-handler": "^1.0.1",
     "@alilc/lowcode-plugin-code-editor": "^1.0.3",
     "@alilc/lowcode-plugin-code-generator": "^1.0.4",
@@ -31,6 +32,7 @@
     "@alilc/lowcode-react-renderer": "^1.1.2",
     "@alilc/lowcode-setter-behavior": "^1.0.0",
     "@alilc/lowcode-setter-title": "^1.0.2",
+    "@planjs/react-utils": "0.0.43",
     "antd": "^4.21.4",
     "moment": "^2.29.3",
     "sass": "^1.69.5",
@@ -38,7 +40,7 @@
   },
   "devDependencies": {
     "@alib/build-scripts": "^0.1.18",
-    "@alilc/lowcode-engine": "^1.1.2",
+    "@alilc/lowcode-engine": "^1.2.2",
     "@alilc/lowcode-engine-ext": "^1.0.0",
     "@alilc/lowcode-types": "^1.1.1",
     "@types/events": "^3.0.0",

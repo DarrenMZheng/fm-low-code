@@ -21,7 +21,9 @@ import LogoSamplePlugin from './plugins/plugin-logo-sample';
 import SimulatorLocalePlugin from './plugins/plugin-simulator-locale';
 import lowcodePlugin from './plugins/plugin-lowcode-component';
 import appHelper from './appHelper';
+import TemplatePane from './plugins/plugin-template';
 import './global.scss';
+import 'antd/dist/antd.css'
 
 async function registerPlugins() {
   await plugins.register(InjectPlugin);
@@ -51,6 +53,8 @@ async function registerPlugins() {
   await plugins.register(DefaultSettersRegistryPlugin);
 
   await plugins.register(LogoSamplePlugin);
+  await plugins.register(TemplatePane);
+
 
   await plugins.register(ComponentPanelPlugin);
 

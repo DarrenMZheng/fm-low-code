@@ -53,3 +53,21 @@ html {
   color: white;
   cursor: pointer;
 }
+.save-template-modal{
+  top:32%;
+  .ant-modal-confirm-btns{
+    display: none;
+  }
+  &--content{
+    width:100%;
+    height:100%;
+  }
+  &--footer{
+    width:100%;
+    display: flex;
+    justify-content: flex-end;
+  }
+}
+.ant-modal{
+  top:40% !important
+}

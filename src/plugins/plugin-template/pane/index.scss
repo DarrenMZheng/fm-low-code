@@ -1,0 +1,72 @@
+.template-pane {
+    width: 100%;
+    overflow-y: scroll;
+    height: 100%;
+
+    &::-webkit-scrollbar {
+        width: 6px;
+        height: 6px;
+        /**/
+    }
+
+    &::-webkit-scrollbar-track {
+        background: #e2e2e2;
+        border-radius: 2px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        background: #bfbfbf;
+        border-radius: 6px;
+    }
+
+    &::-webkit-scrollbar-thumb:hover {
+        background: #999;
+    }
+
+    .ant-list-split .ant-list-item {
+        position: relative;
+        padding: 12px;
+
+
+        .list-icon {
+            margin-right: 6px;
+        }
+
+        .delete-icon {
+            position: absolute;
+            right: 8px;
+            top: 15px;
+            color: #C6262B;
+        }
+    }
+
+    &-cate {
+        width: 100%;
+        height: 30px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding-left: 12px;
+        line-height: 30px;
+        font-size: 16px;
+        color: #333;
+        background: #efefef;
+        border-bottom: 1px solid #999;
+    }
+
+    &-empty {
+        width: 100%;
+        height: 300px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    &-loading {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+}
