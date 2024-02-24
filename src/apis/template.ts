@@ -8,19 +8,32 @@ export interface TemplateType {
     tmpVersion?: number;
 }
 
-export const getTmpList = async (tmpCategoryId: number) => {
-    if (!tmpCategoryId) {
-        console.error('tmpCategoryId is undefined! ', tmpCategoryId);
+export const getTmpList = async (tmpCategoryCode: String) => {
+    if (!tmpCategoryCode) {
+        console.error('tmpCategoryId is undefined! ', tmpCategoryCode);
         return
     }
-    const url = `${baseUrl}/lowcode/tmpByCategory/${tmpCategoryId}`;
+    const url = `http://127.0.0.1:7001/api/v1/schema/querySchemasByCategory?categoryCode=${tmpCategoryCode}`;
     const res = await request(url);
     console.log('res: ', res);
-    if (!res) {
+    const resTmp = [];
+    res.data.map((item) => {
+      const tmp = {
+        id: item.template_id,
+        tmpName: item.template_name,
+        tmpSchema: item.template_json,
+        tmpOrder: item.template_type_code,
+        tmpCategoryId: item.template_type_code,
+        tmpVersion: item.template_type_code,
+      }
+      resTmp.push(tmp);
+    })
+   
+    if (!resTmp.length) {
         console.error('list tmp failed: ', res);
         return;
     }
-    return res;
+    return resTmp;
 }
 export const getCurTmp = async (tmpId: number) => {
     if (!tmpId) {
@@ -39,7 +52,7 @@ export const getCurTmp = async (tmpId: number) => {
 
 export const createTmp = async (template: TemplateType) => {
    // const url = `${baseUrl}/lowcode/tmp`;
-   const url ='http://12831936.r17.cpolar.top/lowcode/createTmp'
+   const url ='http://127.0.0.1:7001/api/v1/schema/addSchema'
     const result = await (
         await request(url, {
             method: 'post',
@@ -52,7 +65,7 @@ export const createTmp = async (template: TemplateType) => {
     );
     console.log('result', result);
 
-    if (!result?.id) {
+    if (!result) {
         console.error('create tmp failed: ', result);
         return;
     }

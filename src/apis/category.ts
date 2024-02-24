@@ -4,28 +4,15 @@ export enum CategoryTypeEnum {
     TMP = 'tmp'
   }
   
-  export interface CategoryType {
+  export interface SchemaType {
     id: string;
-    categoryName: string;
-    categoryType: 'section' | 'tmp';
+    schemaType: string;
+    typeCode: string;
+    type: 'section' | 'tmp';
   }
-  export const getCategoryList = async (type: CategoryType['categoryType']) => {
-    const url = `${baseUrl}/lowcode/categoryByType/${type}`;
-    //const res = await request(url);
-    const res =[
-      {
-        categoryCode:'33333333333333333333333',
-        categoryName:'1.5承诺报告',
-        categoryType:'tmp',
-        id:7
-      },
-      {
-        categoryCode:'55555555555555555555',
-        categoryName:'1.6承诺报告',
-        categoryType:'tmp',
-        id:8
-      }
-    ]
+  export const getCategoryList = async (type: SchemaType['type']) => {
+    const url = `http://127.0.0.1:7001/api/v1/schema/querySchemaType?type=${type}`;
+    const res = await request(url);
     console.log('res: ', res);
     if (!res) {
       console.error('list category failed: ', res);
@@ -34,8 +21,8 @@ export enum CategoryTypeEnum {
     return res;
   }
   
-  export const createCategory = async (category: CategoryType) => {
-    const url = `${baseUrl}/lowcode/category`;
+  export const createCategory = async (category: SchemaType) => {
+    const url = 'http://127.0.0.1:7001/api/v1/schema/addSchemaType';
     const res = await (await fetch(url, {
       method: 'post',
       headers: {

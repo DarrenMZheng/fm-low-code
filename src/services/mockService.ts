@@ -11,6 +11,7 @@ import {
 import DefaultPageSchema from './defaultPageSchema.json';
 import DefaultI18nSchema from './defaultI18nSchema.json';
 import {saveTemplateSchema} from '../utils/template';
+import {saveTemplateSchemaType} from '../utils/category';
 const generateProjectSchema = (pageSchema: IPublicTypeRootSchema, i18nSchema: IPublicTypeI18nMap): IPublicTypeProjectSchema => {
   return {
     componentsTree: [pageSchema],
@@ -26,6 +27,10 @@ export const saveSchema = async (scenarioName: string = 'unknown') => {
   // await setPackagesToLocalStorage(scenarioName);
   // Message.success('成功保存到本地');
   saveTemplateSchema()
+};
+
+export const saveSchemaType = async (scenarioName: string = 'unknown') => {
+  saveTemplateSchemaType()
 };
 
 export const resetSchema = async (scenarioName: string = 'unknown') => {
